@@ -1,1 +1,32 @@
+#Implementacion con For
+def opbin(formula):
+    operadores = 0
+    for i in formula:
+        if i == '(':
+            operadores+=1
+        elif i == '¬':
+            operadores -=1
+        else:
+            continue
+    return operadores
+print(opbin("(¬(pvpvpvpvpvpvpvp(pvp)))"))
 
+
+#implementacion recursiva
+#se declara funcion auxiliar para ejecutar el proceso recursivo en el acumulador n
+#se particiona la lista 1:n, n es la nueva lista de los proximos llamados
+def opbinary(formula):
+    n=0
+    def aux(formula,n):
+        if ( formula == ""):
+            print(n)
+        elif (formula[0]== ('&')):
+            return aux(formula[1:],n+1)
+        elif (formula[0]== ('v')):
+            return aux(formula[1:],n+1)
+        elif (formula[0]== ('>')):
+            return aux(formula[1:],n+1)
+        else:
+            aux(formula[1:],n)
+    aux(formula,n)
+opbinary("r>t&yvpvovrvt")
