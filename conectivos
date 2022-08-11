@@ -30,3 +30,5 @@ def opbinary(formula):
             aux(formula[1:],n)
     aux(formula,n)
 opbinary("r>t&yvpvovrvt")
+
+#Edgar Portilla
